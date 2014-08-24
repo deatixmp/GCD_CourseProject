@@ -73,7 +73,7 @@ tidy_data<-data[toextract_columns_indexes]
 tidy_data_2<-aggregate(data[!(names(data) %in% c("Label.Id","Activity.Label","Subject.Id"))],by=data[c("Activity.Label","Subject.Id")],FUN=mean))
 
 #Writing the dataset into a .csv file
-con<-file(description="dataset_avgfeatures.csv",open="wt")
-write.csv(tidy_data_2,file=con,row.names=FALSE)
+con<-file(description="dataset_avgfeatures.txt",open="wt")
+write.table(tidy_data_2,file=con,row.names=FALSE)
 close(con)
 
